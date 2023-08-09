@@ -4,7 +4,7 @@
 ![Screenshot 2023-08-09 at 14 23 35](https://github.com/Spectrumsun/page-setting/assets/20597418/1665af4a-fa46-49d7-9c8a-afd4894c2f75)
 
 # View App
-  * Host App https://settings-page-two.vercel.app/
+  * [Hosted App link](https://page-setting-rb66vy105-spectrumsunny.vercel.app/)
 
 # Technologies Used
   * HTML,SCSS,React,Tailwind
