@@ -1,7 +1,7 @@
 
-# A simple settings page 
+# Settings page 
 
-# ![Screenshot 2023-01-11 at 13 55 56](https://user-images.githubusercontent.com/20597418/211812117-35c81270-2574-46f5-95c3-b5ffda25f386.png) 
+![Screenshot 2023-08-09 at 14 23 35](https://github.com/Spectrumsun/page-setting/assets/20597418/1665af4a-fa46-49d7-9c8a-afd4894c2f75)
 
 # View App
   * Host App https://settings-page-two.vercel.app/
