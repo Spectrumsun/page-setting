@@ -1,0 +1,87 @@
+.sidebar {
+  &__wrapper {
+    @apply h-screen w-72;
+    padding: 30px 10px 10px 10px;
+  }
+
+  &__logo {
+    @apply flex items-center mb-5; 
+  }
+
+  &__search {
+    @apply flex p-2 rounded border border-solid mb-5;
+    input {
+      @apply outline-none;
+    }
+  }
+
+  &__list {
+    @apply flex flex-col;
+    ul {
+      @apply p-0 overflow-scroll;
+    }
+
+    li {
+      @apply flex content-center list-none p-2 font-medium text-gray-700 hover:bg-gray-100;
+    }
+    
+    span {
+      @apply ml-5;
+    }
+    &-ul {
+      @apply mt-5;
+    }
+
+    &-li {
+      background: #F9FAFC;
+    }
+    &-dash {
+      @apply flex justify-between w-full items-baseline;
+    }
+    &-count{
+      @apply flex rounded-tl-3xl bg-gray-100 px-1;
+      border-radius: 50%;
+    }
+  }
+
+  &__card {
+    @apply mb-5 mt-5;
+    background: #F9FAFC;
+    padding: 10px;
+    &-image {
+      width: 250px;
+    } 
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+    &-new {
+      display: flex;
+      p:nth-child(1) {
+        margin-right: 15px;
+      }
+
+      p:nth-child(2) {
+        color: #6941C6;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__exit {
+    @apply flex items-center justify-between mt-8;
+    p {
+      @apply p-0 m-0;
+    }
+  }
+
+  @media screen and (max-width: 1165px) {
+    &__wrapper {
+      display: none;
+    }
+
+    &__logo {
+      background: #ffffff;
+    }
+  }
+}

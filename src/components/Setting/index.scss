@@ -1,0 +1,92 @@
+.setting {
+  &__wrapper {
+    @apply overflow-scroll;
+    background: #F9FAFC;
+    height: 100vh;
+    width: 100%;
+    padding: 30px;
+  }
+  &__items {
+    @apply flex m-0 pl-0;
+    li {
+      @apply list-none p-2 bg-white shadow-sm text-gray-600 text-xs whitespace-nowrap hover:bg-gray-100;;
+      border: 1px solid #D0D5DD;
+      border-right: none;
+      filter: drop-shadow(0px 1px 2px rgba(16, 24, 40, 0.05));
+    }
+    li:last-child {
+      border-right: 1px solid #D0D5DD;
+    }
+  }
+  &__email {
+    @apply flex bg-white p-2 rounded shadow border-gray-500 w-72;
+    border: 1px solid #D0D5DD;
+  }
+
+  &__card {
+    @apply flex w-full justify-between p-3 rounded-md mt-5;
+    background-color: #F9F5FF;
+    border: 1px solid #D6BBFB;
+    &-ending {
+      color: #53389E;
+    }
+    &-expire {
+      color: #7F56D9
+    }
+    &-default {
+      color: #9D78ED
+    }
+    &-edit {
+      color: #6941C6;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &__wrapper {
+      padding:  0px;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    &__pay {
+      @apply flex-wrap;
+    }
+  }
+
+  @media screen and (max-width: 562px) {
+    &__items {
+      @apply overflow-scroll text-sm;
+    }
+  }
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  background-clip: content-box;
+  border: 2px solid #7F56D9;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  background-color: #7F56D9;
+}
+
+.logo {
+  display: none;
+}
+
+@media screen and (max-width: 1165px) {
+  .logo {
+    @apply flex items-center bg-white p-4 justify-between fixed w-full;
+  }
+  .setting__wrapper {
+    margin-top: 75px;
+  }
+}
