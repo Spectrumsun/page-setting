@@ -1,6 +1,6 @@
 .setting {
   &__wrapper {
-    @apply overflow-scroll w-full p-8;
+    @apply overflow-scroll w-full p-8 h-screen;
     background: var(--background);
     padding-bottom: 100px;
   }

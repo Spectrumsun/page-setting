@@ -1,7 +1,8 @@
 .sidebar {
   &__wrapper {
-    @apply w-72 overflow-scroll;
+    @apply overflow-scroll;
     padding: 0px 10px 10px 10px;
+    width: 360px;
   }
 
   &__logo {
@@ -48,9 +49,11 @@
 
   &__card {
     @apply mb-5 mt-5 p-3;
-    background: var(--background2);
+    background: var(--background);
+   
+    
     &-image {
-      @apply w-64;
+      @apply w-full;
     } 
     img {
       @apply object-contain w-full;

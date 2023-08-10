@@ -8,11 +8,10 @@ import Button from '../../Icon/Button';
 import Table from '../Table';
 import './index.scss';
 
-const Setting = ({ showSideBar }) => {
+const Setting = () => {
   const [check, setCheck] = useState('visa');
   return (
-    <div 
-    className={`flex flex-col w-full ${showSideBar && "h-screen"}`}>
+    <div className="flex flex-col w-full">
       <div className="setting__wrapper">
         <h1 className="text-3xl pl-5 md:pl-0">Settings</h1>
         <p className="mt-2 font-light mb-5 text-gray-500 pl-5 md:pl-0">Manage your team and preferences here.</p>
