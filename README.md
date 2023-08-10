@@ -1,21 +1,25 @@
 
 # Settings page 
-
-![Screenshot 2023-08-09 at 14 23 35](https://github.com/Spectrumsun/page-setting/assets/20597418/1665af4a-fa46-49d7-9c8a-afd4894c2f75)
+![Screenshot 2023-08-10 at 18 58 58](https://github.com/Spectrumsun/page-setting/assets/20597418/71556115-1e91-4fc6-a447-f576559c74a4)
 
 # View App
-  * [Hosted App link](https://page-setting-rb66vy105-spectrumsunny.vercel.app/)
+  * [Hosted App link](https://page-setting.vercel.app/)
 
 # Technologies Used
-  * HTML,SCSS,React,Tailwind
+  * HTML
+  * SCSS
+  * React
+  * Tailwind
+
 # Features
   * A user view the billing section of the setting page
 
 # To Install
 * Download or clone the repo
-* Open terminal inside root directory of cloned folder
+* Open the terminal inside the root directory of the clone folder  `cd page-setting`
 * Type `npm i` press enter to install the all dependencies
-* `npm start` to run the app 
+* Type `npm start` and press enter to run the app
+* Go to `http://localhost:3000` on your browser to view the application
 
 # LICENSE
 * [MIT](./LICENSE) © [Taiwo Sunday]
