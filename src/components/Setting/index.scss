@@ -2,6 +2,7 @@
   &__wrapper {
     @apply overflow-scroll h-screen w-full p-8;
     background: var(--background);
+    padding-bottom: 100px;
   }
   
   &__items {
@@ -147,7 +148,7 @@
   .logo {
     @apply flex items-center bg-white p-4 justify-between fixed w-full;
   }
-  // .setting__wrapper {
-  //   margin-top: 75px;
-  // }
+  .setting__wrapper {
+    margin-top: 75px;
+  }
 }
