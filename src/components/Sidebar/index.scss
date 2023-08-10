@@ -93,7 +93,7 @@
     }
     &__wrapper-active {
       @apply flex absolute box-border w-full flex-col z-10 bg-white overflow-scroll h-full;
-      margin-top: 75px;
+      padding-bottom: 75px;
     }
   }
 }
