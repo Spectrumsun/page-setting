@@ -1,6 +1,6 @@
 .setting {
   &__wrapper {
-    @apply overflow-scroll h-screen w-full p-8;
+    @apply overflow-scroll w-full p-8;
     background: var(--background);
     padding-bottom: 100px;
   }
@@ -78,9 +78,6 @@
     }
   }
 
-  &__edit-wrapper {
-
-  }
 
 
   &__h3 {
