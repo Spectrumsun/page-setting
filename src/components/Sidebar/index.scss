@@ -91,14 +91,7 @@
       @apply bg-white;
     }
     &__wrapper-active {
-      display: flex;
-      position: absolute;
-      background-color: var(--white);
-      box-sizing: border-box;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      z-index: 1;
+      @apply flex absolute box-border w-full flex-col z-10 bg-white overflow-scroll;
     }
   }
 }
