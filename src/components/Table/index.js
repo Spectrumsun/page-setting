@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../Icon/Button';
 import Arrow from '../../Icon/Arrow';
 import Mark from '../../Icon/Mark';
@@ -33,13 +33,27 @@ const tableData = [
 const position = ['0px', '-15px', '-30px', '-45px', '-55px'];
 
 const Table = () => {
-    return (
-      <table className="table" cellSpacing="0">
+  const [checkedAll, setCheckedAll] = useState(false);
+  const toggleCheck = () => {
+    setCheckedAll(!checkedAll);
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (let i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].checked = !checkedAll;
+    }
+  };
+
+  return (
+    <table className="table" cellSpacing="0">
         <thead>
           <tr>
             <th>
               <span className="flex items-center">
-                <input type="checkbox" className='table__check mr-2'/> 
+                <input 
+                  type="checkbox" 
+                  className='table__check mr-2' 
+                  checked={checkedAll}
+                  onChange={() => toggleCheck()}
+                /> 
                 <span className="table__title">Invoice</span> 
                 <Arrow /> 
               </span>
@@ -55,11 +69,21 @@ const Table = () => {
           {
             tableData.map((data, index) => (
               <tr key={index}>
-                <td className="text-gray-900 font-medium"> <input type="checkbox" className='table__check mr-2'/>{data.invoice}</td>
-                <td className="text-gray-500">{data.amount}</td>
-                <td className="text-gray-500">{data.date}</td>
-                <td className="">
-                    <div className="flex items-center bg-green-50 rounded-2xl justify-between px-2 w-16 w-16">
+                <td 
+                className="text-gray-900 font-medium flex items-center table__item"> 
+                  <input 
+                    type="checkbox" 
+                    className='table__check mr-2'
+                    name={ `${index}-check`}
+                  />
+                  <p className="table__invoice">{data.invoice}</p>
+                </td>
+                <td className="table__cell">{data.amount}</td>
+                <td className="table__cell">{data.date}</td>
+                <td className="table__cell">
+                    <div 
+                      className="flex items-center bg-green-50 rounded-2xl justify-between px-2 w-16 w-16"
+                    >
                       <Mark />
                       <span className="ml-3 text-green-700">{data.status}</span>
                     </div>
@@ -75,7 +99,7 @@ const Table = () => {
                           src={user} 
                           style={{ transform: `translate(${position[index]}, 0px)`}}
                         />
-                        )
+                      )
                     }
                     {
                       data.user > 5 

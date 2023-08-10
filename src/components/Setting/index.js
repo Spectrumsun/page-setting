@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Email from '../../Icon/Email';
 import Visa from '../../Icon/Visa';
 import MasterCard from '../../Icon/MasterCard';
@@ -11,6 +11,8 @@ import Mobile from '../../Icon/Mobile';
 import './index.scss';
 
 const Setting = () => {
+  const [check, setCheck] = useState('visa');
+
   return (
     <div className="flex flex-col w-full">
     <div className="logo">
@@ -24,44 +26,77 @@ const Setting = () => {
       <h1 className="text-3xl pl-5 md:pl-0">Settings</h1>
       <p className="mt-2 font-light mb-5 text-gray-500 pl-5 md:pl-0">Manage your team and preferences here.</p>
       <ul className="setting__items">
-        <li className="rounded-tl-lg rounded-bl-lg">My details</li>
-        <li>Profile</li>
-        <li>Password</li>
-        <li>Team</li>
-        <li>Plan</li>
-        <li className="!bg-gray-100">Billing</li>
-        <li>Notifications</li>
-        <li>Integrations</li>
-        <li className="rounded-br-lg rounded-tr-lg">API</li>
+        <li className="rounded-tl-lg rounded-bl-lg setting__li">My details</li>
+        <li className="setting__li">Profile</li>
+        <li className="setting__li">Password</li>
+        <li className="setting__li">Team</li>
+        <li className="setting__li">Plan</li>
+        <li className="setting__active setting__li">Billing</li>
+        <li className="setting__li">Notifications</li>
+        <li className="setting__li">Integrations</li>
+        <li className="rounded-br-lg rounded-tr-lg setting__li">API</li>
       </ul>
-      <h3 className="mt-10 text-xl pl-5 md:pl-0 text-gray-900">Payment method</h3>
-      <p className="font-light text-xs mb-5 text-gray-500 pl-5 md:pl-0">Update your billing and address.</p>
+      <h3 
+        className="mt-10 pl-5 md:pl-0 setting_h3 text-lg">
+        Payment method
+      </h3>
+      <p 
+        className="font-light text-sm mb-5 pl-5 md:pl-0 setting_p"
+      >
+        Update your billing and address.
+      </p>
       <hr className=" mb-10"/>
       <div className="flex flex-wrap pl-5 md:pl-0">
         <div className="mr-20">
-          <h4 className="text-gray-700">Contact email</h4>
-          <p className="font-light text-xs mb-5 text-gray-500">Where should invoices be sent?</p>
+          <h4 className="setting__contact text-sm">Contact email</h4>
+          <p 
+            className="font-light text-xs mb-5 seting__p text-sm"
+            >
+            Where should invoices be sent?
+          </p>
         </div>
+        
         <div>
           <div className="flex">
-            <input type="radio" id="email" name="default_email" value="olivia@untitledui.com" />
+            <input 
+              type="radio" 
+              id="default_email" 
+              name="email" 
+              value="olivia@untitledui.com" 
+              className="setting__radio"
+            />
             <span className="ml-2">
-              <label htmlFor="html text-gray-700">Send to my account email</label><br />
-              <p className="font-light text-xs mb-5 text-gray-500">olivia@untitledui.com</p>
+              <label 
+                htmlFor="default_email" 
+                className="text-sm setting__contact"
+              >
+                Send to my account email
+              </label>
+              <br />
+              <p className="font-light text-xs mb-5 select__p">olivia@untitledui.com</p>
             </span>
           </div>
 
           <div className="flex">
-            <input type="radio" id="email" name="alternative_email" checked  readOnly value="biling@untitledui.com" />
+            <input 
+              type="radio" 
+              id="alternative_email" 
+              name="email" 
+              checked  
+              readOnly 
+              value="biling@untitledui.com"
+              className="setting__radio"
+            />
             <span className="ml-2">
-                <label htmlFor="html" className="text-gray-700">Send to an alternative email</label><br />
+                <label htmlFor="alternative_email" className="text-sm setting__contact">Send to an alternative email</label><br />
               <div className="setting__email mt-3">
                 <Email />
-                <p className="font-light text-xs ml-3">biling@untitledui.com</p>
+                <p className="ml-3 text-base leading-6 setting__h3">biling@untitledui.com</p>
               </div>
             </span>
           </div>
         </div>
+
       </div>
       <hr className="mt-5 mb-5"/>
 
@@ -71,30 +106,74 @@ const Setting = () => {
           <p className="font-light text-xs mb-5 text-gray-500">Select default payment method.</p>
         </div>
         <div  className="flex w-full flex-col">
-          <div className="setting__card">
-          <div className="flex">
-            <Visa />
-            <div className="flex flex-col ml-5">
-              <p className="setting__card-ending">Visa ending in 1234</p>
-              <p className="setting__card-expire font-normal text-sm">Expiry 06/2024</p>
-              <p className="setting__card-default text-xs mt-3">Set as default <span className="setting__card-edit">Edit</span></p>
+          <button 
+            className={`setting__card ${check === 'visa' ? 'setting__card-active' : 'setting__card-not-active'}`}
+            onClick={() => setCheck('visa')}
+          >
+            <div className="flex">
+              <Visa />
+              <div className="flex flex-col ml-5">
+                <p 
+                  className={`setting__card ${check === 'visa' ? 'setting__card-active-ending' : 'setting__card-not-active-ending'}`}
+                >
+                  Visa ending in 1234
+                </p>
+                <p 
+                  className={`setting__card ${check === 'visa' ? 'setting__card-active-expire' : 'setting__card-not-active-expire'}`}
+                >
+                  Expiry 06/2024
+                </p>
+                <span className="setting__edit-wrapper flex">  
+                  <p 
+                    className={` ${check === 'visa' ? 'setting__card-active-default' : 'setting__card-not-active-default'}`}
+                  >
+                    Set as default 
+                  </p>
+                  <p
+                    className={`${check === 'visa' ? 'setting__card-active-edit' : 'setting__card-not-active-edit'}`}
+                  >
+                  Edit
+                </p>
+                </span>
+              </div>
             </div>
-            </div>
-            <Check />
-          </div>
+            { check === 'visa' ? <Check /> : <Uncheck /> }
+          </button>
 
-          <div className="setting__card bg-white border-gray-200 rounded-sm">
+          <button 
+            className={`setting__card ${check === 'master'? 'setting__card-active' : 'setting__card-not-active'}`}
+            onClick={() => setCheck('master')}
+          >
           <div className="flex">
-            <MasterCard />
-            <div className="flex flex-col ml-5">
-              <p className="setting__card-ending text-gray-600">Mastercard ending in 1234</p>
-              <p className="setting__card-expire font-normal text-sm text-gray-400">Expiry 06/2024</p>
-              <p className="setting__card-default text-xs text-gray-500 mt-3">Set as default <span className="setting__card-edit">Edit</span></p>
+              <MasterCard />
+              <div className="flex flex-col ml-5">
+                <p 
+                  className={`setting__card ${check === 'master' ? 'setting__card-active-ending' : 'setting__card-not-active-ending'}`}
+                >
+                  Mastercard ending in 1234
+                </p>
+                <p 
+                  className={`setting__card ${check === 'master' ? 'setting__card-active-expire' : 'setting__card-not-active-expire'}`}
+                >
+                  Expiry 06/2024
+                </p>
+                <span className="setting__edit-wrapper flex">  
+                  <p 
+                    className={` ${check === 'master' ? 'setting__card-active-default' : 'setting__card-not-active-default'}`}
+                  >
+                    Set as default 
+                  </p>
+                  <p
+                    className={`${check === 'master' ? 'setting__card-active-edit' : 'setting__card-not-active-edit'}`}
+                  >
+                  Edit
+                </p>
+                </span>
+              </div>
             </div>
-            </div>
-            <Uncheck />
-          </div>
-          <p className="mt-5 text-gray-400">+ Add payment method</p>
+            { check === 'master' ? <Check /> : <Uncheck /> }
+          </button>
+          <p className="mt-5 text-gray-400">+ Add new payment method</p>
         </div>
       </div>
       <div className="mt-10 mb-5 pl-5 md:pl-0 pr-5 md:pr-0">
@@ -109,7 +188,6 @@ const Setting = () => {
       <div className="w-full overflow-scroll">
         <Table />
       </div>
-
     </div>
     </div>
   )

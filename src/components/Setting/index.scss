@@ -1,43 +1,122 @@
 .setting {
   &__wrapper {
-    @apply overflow-scroll;
-    background: #F9FAFC;
-    height: 100vh;
-    width: 100%;
-    padding: 30px;
+    @apply overflow-scroll h-screen w-full p-8;
+    background: var(--background);
   }
+  
   &__items {
     @apply flex m-0 pl-0;
-    li {
-      @apply list-none p-2 bg-white shadow-sm text-gray-600 text-xs whitespace-nowrap hover:bg-gray-100;;
-      border: 1px solid #D0D5DD;
-      border-right: none;
-      filter: drop-shadow(0px 1px 2px rgba(16, 24, 40, 0.05));
-    }
+      
     li:last-child {
-      border-right: 1px solid #D0D5DD;
+      border-right: 1px solid var(--border);
     }
   }
+
+  &__li {
+      @apply list-none p-2 bg-white shadow-sm text-xs whitespace-nowrap text-sm leading-5;
+      color: var(--li);
+      border: 1px solid var(--border);
+      border-right: none;
+      filter: drop-shadow(0px 1px 2px --var(filter));
+      &:hover {
+        background: var(--number); 
+      }
+    }
+  
+  &__active {
+    background: var(--number);
+  }
   &__email {
-    @apply flex bg-white p-2 rounded shadow border-gray-500 w-72;
-    border: 1px solid #D0D5DD;
+    @apply flex bg-white p-2 rounded shadow border-gray-500 w-72 items-center;
+    border: 1px solid var(--border);
   }
 
   &__card {
     @apply flex w-full justify-between p-3 rounded-md mt-5;
-    background-color: #F9F5FF;
-    border: 1px solid #D6BBFB;
+  }
+
+  &__card-active {
+    background-color: var(--background2);
+    border: 1px solid var(--cardBorder);
     &-ending {
-      color: #53389E;
+      @apply text-sm leading-7 m-0 p-0;
+      color: var(--card);
     }
     &-expire {
-      color: #7F56D9
+      @apply text-sm leading-7 m-0 p-0;
+      color: var(--card2);
     }
     &-default {
-      color: #9D78ED
+      @apply text-sm leading-7 m-0 p-0 font-medium;
+      color: var(--card3);
     }
     &-edit {
-      color: #6941C6;
+      @apply ml-4;
+      color: var(--card4);
+    }
+  }
+  
+  &__card-not-active {
+    @apply bg-white border-gray-200 rounded-sm;
+    border: 2px solid #EAECF0;
+    &-ending {
+      @apply text-sm leading-7 m-0 p-0;
+      color: var(--li);
+    }
+    &-expire {
+      @apply text-sm leading-7 m-0 p-0;
+      color: var(--tableCell);
+    }
+    &-default {
+      @apply text-sm leading-7 m-0 p-0 font-medium;
+      color: var(--tableCell);
+    }
+    &-edit {
+      @apply ml-4;
+      color: var(--card4);
+    }
+  }
+
+  &__edit-wrapper {
+
+  }
+
+
+  &__h3 {
+    color: var(--table);
+  }
+
+  &_p {
+    color: var(--tableCell);
+  }
+
+  &__contact {
+    color: var(--li);
+  }
+
+  &__radio {
+    @apply bg-white appearance-none bg-clip-content p-2 w-6 h-6;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    transition: border 120ms ease-in-out;
+
+    &:checked {
+      border: 2px solid var(--card2);
+      transform: scale(1)
+    }
+    &::before {
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 120ms ease-in-out;
+      box-shadow: inset 1em 1em var(--card2);
+    }
+    &:checked::before {
+      transform: scale(1.2);
     }
   }
 
@@ -60,26 +139,8 @@
   }
 }
 
-input[type="radio"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  padding: 6px;
-  background-clip: content-box;
-  border: 2px solid #7F56D9;
-  background-color: #ffffff;
-  border-radius: 50%;
-}
-
-input[type="radio"]:checked {
-  background-color: #7F56D9;
-}
-
 .logo {
-  display: none;
+  @apply hidden;
 }
 
 @media screen and (max-width: 1165px) {

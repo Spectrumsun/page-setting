@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar__wrapper">
       <div className="sidebar__logo">
-        <Logo />
+        <img src="/logo192.png" alt="logo" width="40px;" />
         <h3 className="ml-2">Untitled UI</h3>
       </div>
       <div className="sidebar__search">

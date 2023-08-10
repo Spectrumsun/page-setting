@@ -1,46 +1,86 @@
 .table {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+  @apply shadow-lg block overflow-x-auto w-full whitespace-nowrap border-collapse;
   min-width: 907px;
-  @apply shadow-lg;
-  display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+
+  &__invoice {
+    @apply font-semibold text-sm;
+    color: var(--text2);
+  }
+
+  &__cell {
+    @apply text-sm leading-5;
+    color: var(--tableCell);
+  }
 
   td {
-    @apply text-sm font-normal;
+    @apply text-sm font-normal ;
   }
 
   td, 
   th {
-    padding: 15px;
+    @apply p-4;
   }
   tr{
-    background-color: #ffffff;
-    border: 1px solid #EAECF0;
+    @apply bg-white;;
+    border: 1px solid var(--border2);
   }
 
   tr:hover {
-    background-color: #F9FAFB;
+    background-color: var(--background3);
   }
   th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #F9FAFB;
+    @apply pt-3 pb-3 text-left;
+    background-color: var(--background3);
   }
   &__title {
-    @apply text-gray-500 font-medium text-xs leading-4;
+    @apply font-medium text-xs leading-4;
+    color: var(--text2);
   }
 
   &__user-left {
     @apply rounded-full w-14 h-14 flex justify-center items-center text-xl font-medium leading-3;
-    border: 2px solid #FFF;
-    background: #F9FAFB;
-    color: #475467;
+    border: 2px solid var(--white);
+    background: var(--background3);
+    color: var(--text);
     transform: translate(-70px, 0px)
   }
 
+  &__check {
+    appearance: none;
+    background-color: var(--white);
+    margin: 0;
+    color: var(--card2);
+    width: 25px;
+    height: 25px;
+    border: 0.1em solid var(--border);
+    border-radius: 5px;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    &::before {
+      content: '';
+      transform: scale(0);
+      width: 0.65em;
+      height: 0.65em;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      transform-origin: bottom left;
+      transition: transform 120ms ease-in-out;
+      box-shadow: inset 1em 1em var(--card2);
+      background-color: CanvasText;
+    }
+    &:checked {
+      border: 2px solid var(--card2);
+      &::before {
+        transform: scale(1);
+      }
+      &:focus {
+        outline: max(2px, 0.15em) solid currentColor;
+        outline-offset: max(2px, 0.15em);
+      }
+    }
+  }
 
+  &__item {
+    transform: translate(0px, -18px);
+  }
 }
