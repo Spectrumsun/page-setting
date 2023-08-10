@@ -1,0 +1,13 @@
+.navbar {
+  @apply flex w-full justify-between;
+  width: 100%;
+  padding: 20px;
+  
+  &__h3 {
+    color: var(--tableCell);
+  }
+
+  @media screen and (min-width: 1245px){
+    display: none;
+  }
+}
