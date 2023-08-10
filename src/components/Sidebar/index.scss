@@ -50,8 +50,7 @@
   &__card {
     @apply mb-5 mt-5 p-3;
     background: var(--background);
-   
-    
+  
     &-image {
       @apply w-full;
     } 
@@ -100,5 +99,15 @@
         margin-top: 75px;
         padding-bottom: 200px;
     }
+
+    &__card {
+      width: 400px;
+    }  
+  }
+
+  @media screen and (max-width: 400px) {
+    &__card {
+      width: 100%;
+    }  
   }
 }
