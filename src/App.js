@@ -6,7 +6,7 @@ import NavBar from './components/Navbar';
 const App = () => {
   const [showSideBar, setShowSideBar] = useState(false);
   return (
-    <>
+    <div>
       <NavBar 
         setShowSideBar={setShowSideBar} 
           showSideBar={showSideBar} />
@@ -15,12 +15,11 @@ const App = () => {
           setShowSideBar={setShowSideBar} 
           showSideBar={showSideBar} 
         />
-        <Setting />
+        <Setting showSideBar={showSideBar} />
       </div>
-    </>
+    </div>
   )
 };
-
 
 export default App;
 
